@@ -1,18 +1,24 @@
 # terraform-aws-mcaf-privatelink
 Terraform module to create and manage a [Interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service-overview.html) using Network Load Balancer in AWS PrivateLink.
 
+- Exposes a service running in VPC A to VPC B using PrivateLink. Creates a private DNS name that can used do to access the 
+service. NOTE: To use a private hosted zone, you must set the following VPC attributes to true: `enableDnsHostnames` and `enableDnsSupport`.
+  
+- If the IP address of the service is known, supply the `target_ip`. If it is unknown, supply the `target_security_group_id`
+associated with the service and the IP will be found and targeted.
+
 ```terraform
 module "privatelink" {
   source                   = "github.com/schubergphilis/terraform-aws-mcaf-privatelink"
   name                     = "test"
-  allowed_principals       = ["arn:aws:iam::xxyyzz:root"] # AWS accounts allowed to access the service
+  allowed_principals       = ["arn:aws:iam::xxyyzz:root"]
   domain_name              = "test.com"
   zone_id                  = "AAABBBCCC1234"
   private_subnet_ids       = ["subnet-XXYYZZ"]
-  target_ip                = "192.168.0.1" # When IP address is known, otherwise supply target_security_group_id
+  target_ip                = "192.168.0.1"
   target_port              = 80
   target_protocol          = "TCP"
-  target_security_group_id = "sg-xxyyzz"  # Supply when target_ip not known to find target ENI IP address
+  target_security_group_id = "sg-xxyyzz" 
   vpc_id                   = "vpc-xxyyzz"
 
   tags = {
