@@ -41,16 +41,16 @@ module "privatelink" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| allowed\_principals | List of allowed AWS principals to access the PrivateLink endpoint service | `list(string)` | n/a | yes |
-| domain\_name | Domain name of the DNS Zone to use for the private DNS name | `string` | n/a | yes |
+| allowed\_principals | List of allowed AWS principals to access the endpoint service | `list(string)` | n/a | yes |
+| domain\_name | Domain name to use for the private DNS name | `string` | n/a | yes |
 | name | Name to use for the PrivateLink resources | `string` | n/a | yes |
-| private\_subnet\_ids | List of subnet IDs assigned to the Network Load Balancer | `list(string)` | n/a | yes |
+| private\_subnet\_ids | List of subnet IDs assigned to the network load balancer | `list(string)` | n/a | yes |
 | tags | A mapping of tags to assign to the resources | `map(string)` | n/a | yes |
-| target\_ip | The target IP address of the service shared using PrivateLink | `string` | n/a | yes |
-| target\_port | The target port of the service shared using PrivateLink | `number` | n/a | yes |
-| target\_protocol | The target protocol of the service shared using PrivateLink | `string` | `"TCP"` | no |
+| target\_ip | The target IP address of the endpoint service | `string` | n/a | yes |
+| target\_port | The target port of the endpoint service | `number` | n/a | yes |
 | vpc\_id | The ID of the VPC | `string` | n/a | yes |
-| zone\_id | ID of the DNS Zone | `string` | n/a | yes |
+| zone\_id | The ID of the DNS Zone | `string` | n/a | yes |
+| target\_protocol | The target protocol of the endpoint service | `string` | `"TCP"` | no |
 
 ## Outputs
 
