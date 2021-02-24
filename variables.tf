@@ -1,11 +1,11 @@
 variable "allowed_principals" {
   type        = list(string)
-  description = "List of allowed AWS principals to access the PrivateLink endpoint service"
+  description = "List of allowed AWS principals to access the endpoint service"
 }
 
 variable "domain_name" {
   type        = string
-  description = "Domain name of the DNS Zone to use for the private DNS name"
+  description = "Domain name to use for the private DNS name"
 }
 
 variable "name" {
@@ -15,7 +15,7 @@ variable "name" {
 
 variable "private_subnet_ids" {
   type        = list(string)
-  description = "List of subnet IDs assigned to the Network Load Balancer"
+  description = "List of subnet IDs assigned to the network load balancer"
 }
 
 variable "tags" {
@@ -25,24 +25,18 @@ variable "tags" {
 
 variable "target_ip" {
   type        = string
-  default     = null
-  description = "The target IP address of the service shared using PrivateLink"
+  description = "The target IP address of the endpoint service"
 }
 
 variable "target_port" {
   type        = number
-  description = "The target port of the service shared using PrivateLink"
+  description = "The target port of the endpoint service"
 }
 
 variable "target_protocol" {
   type        = string
   default     = "TCP"
-  description = "The target protocol of the service shared using PrivateLink"
-}
-
-variable "target_security_group_id" {
-  type        = string
-  description = "The target security group ID used to find the ENI of the service shared using PrivateLink"
+  description = "The target protocol of the endpoint service"
 }
 
 variable "vpc_id" {
@@ -52,5 +46,5 @@ variable "vpc_id" {
 
 variable "zone_id" {
   type        = string
-  description = "ID of the DNS Zone"
+  description = "The ID of the DNS Zone"
 }
