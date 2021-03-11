@@ -11,7 +11,7 @@ module "privatelink" {
   allowed_principals       = ["arn:aws:iam::xxyyzz:root"]
   domain_name              = "test.com"
   private_subnet_ids       = ["subnet-XXYYZZ"]
-  target_ip                = "192.168.0.1"
+  target_ips                = ["192.168.0.1", "192.168.0.2"]
   target_port              = 80
   target_protocol          = "TCP"
   vpc_id                   = "vpc-xxyyzz"
