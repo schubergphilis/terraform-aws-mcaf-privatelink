@@ -31,9 +31,11 @@ resource "aws_lb_target_group" "default" {
 }
 
 resource "aws_lb_target_group_attachment" "default" {
+  for_each = toset(var.target_ips)
+
   port             = var.target_port
   target_group_arn = aws_lb_target_group.default.arn
-  target_id        = var.target_ip
+  target_id        = each.key
 }
 
 resource "aws_vpc_endpoint_service" "default" {

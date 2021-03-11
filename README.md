@@ -11,7 +11,7 @@ module "privatelink" {
   allowed_principals       = ["arn:aws:iam::xxyyzz:root"]
   domain_name              = "test.com"
   private_subnet_ids       = ["subnet-XXYYZZ"]
-  target_ip                = "192.168.0.1"
+  target_ips                = ["192.168.0.1", "192.168.0.2"]
   target_port              = 80
   target_protocol          = "TCP"
   vpc_id                   = "vpc-xxyyzz"
@@ -46,10 +46,10 @@ module "privatelink" {
 | name | Name to use for the PrivateLink resources | `string` | n/a | yes |
 | private\_subnet\_ids | List of subnet IDs assigned to the network load balancer | `list(string)` | n/a | yes |
 | tags | A mapping of tags to assign to the resources | `map(string)` | n/a | yes |
-| target\_ip | The target IP address of the endpoint service | `string` | n/a | yes |
 | target\_port | The target port of the endpoint service | `number` | n/a | yes |
 | vpc\_id | The ID of the VPC | `string` | n/a | yes |
 | zone\_id | The ID of the DNS Zone | `string` | n/a | yes |
+| target\_ips | A list of target IP addresses of the endpoint service | `list(string)` | `[]` | no |
 | target\_protocol | The target protocol of the endpoint service | `string` | `"TCP"` | no |
 
 ## Outputs

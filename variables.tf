@@ -23,9 +23,10 @@ variable "tags" {
   description = "A mapping of tags to assign to the resources"
 }
 
-variable "target_ip" {
-  type        = string
-  description = "The target IP address of the endpoint service"
+variable "target_ips" {
+  type        = list(string)
+  default     = []
+  description = "A list of target IP addresses of the endpoint service"
 }
 
 variable "target_port" {
