@@ -3,14 +3,14 @@ variable "allowed_principals" {
   description = "List of allowed AWS principals to access the endpoint service"
 }
 
-variable "domain_name" {
-  type        = string
-  description = "Domain name to use for the private DNS name"
-}
-
 variable "name" {
   type        = string
   description = "Name to use for the PrivateLink resources"
+}
+
+variable "private_dns_name" {
+  description = "Private DNS hostname to connect to the endpoint service"
+  type        = string
 }
 
 variable "private_subnet_ids" {
