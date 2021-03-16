@@ -42,8 +42,8 @@ module "privatelink" {
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | allowed\_principals | List of allowed AWS principals to access the endpoint service | `list(string)` | n/a | yes |
-| domain\_name | Domain name to use for the private DNS name | `string` | n/a | yes |
 | name | Name to use for the PrivateLink resources | `string` | n/a | yes |
+| private\_dns\_name | Private DNS hostname to connect to the endpoint service | `string` | n/a | yes |
 | private\_subnet\_ids | List of subnet IDs assigned to the network load balancer | `list(string)` | n/a | yes |
 | tags | A mapping of tags to assign to the resources | `map(string)` | n/a | yes |
 | target\_port | The target port of the endpoint service | `number` | n/a | yes |
