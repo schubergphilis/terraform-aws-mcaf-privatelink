@@ -53,6 +53,6 @@ resource "aws_route53_record" "default" {
   zone_id         = var.zone_id
 
   records = [
-    aws_vpc_endpoint_service.default.private_dns_name_configuration[0].value
+    aws_vpc_endpoint_service.default.private_dns_name
   ]
 }
