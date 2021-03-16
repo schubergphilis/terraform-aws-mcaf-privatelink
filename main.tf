@@ -3,7 +3,7 @@ locals {
 }
 
 resource "aws_lb" "default" {
-  name               = "${var.name}-nlb"
+  name               = "${var.name}-nlb-privatelink"
   internal           = true
   load_balancer_type = "network"
   subnets            = var.private_subnet_ids
@@ -22,7 +22,7 @@ resource "aws_lb_listener" "default" {
 }
 
 resource "aws_lb_target_group" "default" {
-  name        = var.name
+  name        = "${var.name}-privatelink"
   port        = var.target_port
   protocol    = var.target_protocol
   tags        = local.tags
