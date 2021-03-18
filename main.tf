@@ -43,6 +43,10 @@ resource "aws_vpc_endpoint_service" "default" {
   allowed_principals         = var.allowed_principals
   network_load_balancer_arns = [aws_lb.default.arn]
   private_dns_name           = var.private_dns_name
+
+  tags = {
+    "Name" = var.name
+  }
 }
 
 resource "aws_route53_record" "default" {
