@@ -57,5 +57,6 @@ module "privatelink" {
 | Name | Description |
 |------|-------------|
 | private\_dns\_name | Name of the private DNS to access the service |
+| service\_name | Service name of the Endpoint Service |
 
 <!--- END_TF_DOCS --->
